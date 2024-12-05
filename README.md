@@ -1,5 +1,5 @@
 # Teletherapy Platform - AI-Powered Education & Therapy
-This project is a teletherapy platform that integrates Azure OpenAI, Image Recognition, Animation for Engagement, and Escrow Payments to provide an interactive, AI-powered therapy and educational experience for children. The platform allows therapists and children to engage in therapy sessions through video, analysis, feedback, and animated exercises. It also includes AI-generated personalized content and speech synthesis for feedback.
+This project is a teletherapy platform that integrates Azure OpenAI, Image Recognition, Animation for Engagement, and Escrow Payments to provide an interactive, AI-powered therapy and educational experience for children. The platform allows children with cognitive diabilities to engage in therapy sessions through video, analysis, feedback, and animated exercises. It also includes AI-generated personalized content and speech synthesis for feedback.
 
 ## Key Features
 

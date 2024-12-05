@@ -101,9 +101,8 @@ const HeroPage = () => {
       <div className="hero-content">
         <h1>Welcome to Our Teletherapy Platform</h1>
         <p>
-          Our platform offers virtual therapy sessions with licensed therapists. 
-          Connect with a professional, get personalized care, and take control of 
-          your mental well-being today.
+          Our platform offers virtual therapy sessions with AI monitoring your kids cognitive improvement 
+          , get personalized care, and train their expressions. We believe disability is not inability
         </p>
         <button className="cta-button" onClick={handleRegister}>Start Therapy</button>
       </div>
