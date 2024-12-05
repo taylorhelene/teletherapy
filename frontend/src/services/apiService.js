@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://teletherapy-server.onrender.com/api';
 
 // Function to register a new user
 export const registerUser = async (data) => {
@@ -37,7 +37,7 @@ export const initiateSession = async (sessionData) => {
     }
 
     try {
-        const response = await axios.post('http://localhost:5000/api/sessions', sessionData, {
+        const response = await axios.post('https://teletherapy-server.onrender.com/api/sessions', sessionData, {
             headers: {
                 'Authorization': `Bearer ${token}` // Add token to headers
             }
@@ -156,7 +156,7 @@ export const completePayment = async ({ sessionId, amount, phoneNumber, userId})
 // Function to capture and analyze image
 export const captureAndAnalyzeImage = async (imageData) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/sessions/analyzeImage', { image: imageData });
+      const response = await axios.post('https://teletherapy-server.onrender.com/api/sessions/analyzeImage', { image: imageData });
       return response.data.feedback; // This feedback will be the text read aloud
     } catch (error) {
       console.error('Error capturing and analyzing image:', error);
