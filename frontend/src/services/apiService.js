@@ -134,7 +134,7 @@ export const completePayment = async ({ sessionId, amount, phoneNumber, userId})
 
     try {
         // Wait for 7 seconds before proceeding
-        await new Promise((resolve) => setTimeout(resolve, 9000));
+        await new Promise((resolve) => setTimeout(resolve, 15000));
 
         // Call the payment callback endpoint
         const response = await axios.post(
@@ -149,7 +149,7 @@ export const completePayment = async ({ sessionId, amount, phoneNumber, userId})
         console.log(response.data)
         return response.data; // Return response data
     } catch (error) {
-        console.error('Error completing payment:', error.response?.data || error.message);
+        console.error('Error completing payment:', error);
         throw error;
     }
 };
