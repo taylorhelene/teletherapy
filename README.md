@@ -94,6 +94,8 @@ This feature requires additional setup with payment service providers like Strip
 
 Folder Structure
 
+```textfile
+
 teletherapy-platform/
 ├── backend/                     # Node.js + Express.js (Backend API)
 │   ├── config/                  # Config files (DB, Azure APIs)
@@ -115,6 +117,7 @@ teletherapy-platform/
 │   └── package.json             # Frontend dependencies
 ├── README.md                    # Project documentation
 └── .gitignore                   # Git ignore file
+```
 Troubleshooting
 Webcam Not Working: Make sure your browser has permissions enabled to access the webcam.
 API Integration: Double-check your Azure API keys and ensure they are correctly placed in the .env files for both frontend and backend.
