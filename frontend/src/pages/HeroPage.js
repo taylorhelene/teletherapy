@@ -114,10 +114,10 @@ const HeroPage = () => {
     <div className="key-features">
         <h2>Key Features</h2>
         <ul>
-          <li>Connect with licensed therapists online</li>
-          <li>Personalized therapy sessions tailored to your needs</li>
+          <li>AI cognitive therapy</li>
+          <li>Free fifty sessions, then payment through mpesa for the next fifty sessions each 50 Ksh per 50 sessions</li>
           <li>Safe, confidential, and professional support</li>
-          <li>Easy-to-use platform with flexible scheduling</li>
+          <li>Easy-to-use platform</li>
         </ul>
       </div>
 

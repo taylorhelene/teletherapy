@@ -118,7 +118,7 @@ teletherapy-platform/
 Troubleshooting
 Webcam Not Working: Make sure your browser has permissions enabled to access the webcam.
 API Integration: Double-check your Azure API keys and ensure they are correctly placed in the .env files for both frontend and backend.
-Payment Integration: If using an escrow system, ensure that payment APIs (Stripe/PayPal) are correctly integrated.
+Payment Integration: Payment is through mpesa, first 50 sessions are free.
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
