@@ -108,7 +108,7 @@ exports.initiatePayment = async (req, res) => {
                             "Password": base64PasswordEncoded,
                             "Timestamp": Timestampstring,
                             "TransactionType": "CustomerPayBillOnline",
-                            "Amount": amount,
+                            "Amount": 1,
                             "PartyA": phoneNumber,
                             "PartyB": 174379,
                             "PhoneNumber": phoneNumber,

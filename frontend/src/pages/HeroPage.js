@@ -93,8 +93,8 @@ const HeroPage = () => {
       />
       {/* Top Right Buttons */}
       <div className="auth-buttons">
-        <button className="auth-button" onClick={handleLogin}>Login</button>
-        <button className="auth-button" onClick={handleRegister}>Sign Up</button>
+        <button className="auth-button rounded-pill" onClick={handleLogin}>Login</button>
+        <button className="auth-button rounded-pill" onClick={handleRegister}>Sign Up</button>
       </div>
 
       {/* Hero Content */}
@@ -104,7 +104,7 @@ const HeroPage = () => {
           Our platform offers virtual therapy sessions with AI monitoring your kids cognitive improvement 
           , get personalized care, and train their expressions. We believe disability is not inability
         </p>
-        <button className="cta-button" onClick={handleRegister}>Start Therapy</button>
+        <button className="cta-button rounded-pill" onClick={handleRegister}>Start Therapy</button>
       </div>
 
       

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/apiService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -26,9 +27,11 @@ const LoginPage = () => {
     <div className="login-container">
       {/* Background Video */}
       <div className="video-background">
-        <video className="background-video" loop autoPlay muted>
-          <source src={process.env.PUBLIC_URL + '/signup.mp4'} type="video/mp4" />
-        </video>
+        <DotLottieReact
+          src={process.env.PUBLIC_URL + '/login.json'}
+          loop
+          autoplay
+          className="background-video"/>
       </div>
 
       {/* Login Form */}
@@ -57,7 +60,7 @@ const LoginPage = () => {
             />
           </div>
           <div className="d-flex justify-content-center">
-            <button type="submit" className="btn btn-info btn-lg">Log In</button>
+            <button type="submit " className="rounded-pill btn-info">Log In</button>
           </div>
         </form>
         <div className="signin-link text-center mt-3">

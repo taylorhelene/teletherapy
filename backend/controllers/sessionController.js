@@ -151,7 +151,7 @@ exports.getChatbotResponse = async (req, res) => {
       const response = await axios.post(
           azureEndpoint,
           {
-              messages: [{ role: 'user', content: `You are a virtual therapist guiding a child through cognitive exercises. The child's input is: "${message}". Respond in a supportive and encouraging tone, appropriate for a child.` }],
+              messages: [{ role: 'user', content: `You are a virtual therapist guiding a child through cognitive exercises. The child's input is: "${message}". Respond in a supportive and encouraging tone, appropriate for a child. Respond in Swahili or English depending on the current questions language because children are Kenyan` }],
               max_tokens: 200,
               temperature: 0.7,
           },
@@ -197,20 +197,16 @@ const { analyzeImage } = require('../utils/azureComputerVision');
 
 exports.analyzeWebcamImage = async (req, res) => {
   try {
-    const imageBuffer = req.file.buffer; // Retrieve the image buffer from Multer
-    const analysis = await analyzeImage(imageBuffer);
+    const imageBuffer = req.file.buffer;
+    const expectedText = req.body.expectedText;
+    const result = await analyzeImage(imageBuffer, expectedText);
 
-    // Extract relevant feedback
-    const categories = analysis.categories.map((cat) => cat.name);
-    const feedback = categories.includes('attention')
-      ? 'Great focus! Keep going!'
-      : 'Try to focus on the exercise. You can do this!';
-
-    res.json({ analysis, feedback });
+    res.json({ analysis: result.extractedText, feedback: result.feedback });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 
 

@@ -16,19 +16,39 @@ const computerVisionClient = new ComputerVisionClient(
  * @param {Buffer} imageBuffer - The image buffer to analyze
  * @returns {Object} Analysis results
  */
-const analyzeImage = async (imageBuffer) => {
+const analyzeImage = async (imageBuffer, expectedText) => {
   try {
-    // Supported features for analysis
-    const visualFeatures = ['Categories', 'Description', 'Tags', 'Faces', 'Objects'];
+    const analysis = await computerVisionClient.readInStream(imageBuffer);
+    const operationLocation = analysis.operationLocation;
+    const operationId = operationLocation.split('/').pop();
 
-    // Analyze the image
-    const analysis = await computerVisionClient.analyzeImageInStream(imageBuffer, { visualFeatures });
+    let result;
+    do {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      result = await computerVisionClient.getReadResult(operationId);
+    } while (result.status === 'running');
 
-    return analysis;
+    if (result.status === 'succeeded') {
+      const extractedText = result.analyzeResult.readResults
+        .map(page => page.lines.map(line => line.text).join(' '))
+        .join(' ');
+      
+      const normalizedText = extractedText.toLowerCase().trim();
+      const normalizedExpected = expectedText.toLowerCase().trim();
+
+      const feedback = normalizedText === normalizedExpected
+        ? 'Good writing! 👏'
+        : normalizedText.includes('😊')
+        ? 'Try harder! You can do it!'
+        : 'Keep practicing! You are learning!';
+      
+      return { extractedText, feedback };
+    }
   } catch (error) {
     console.error('Error analyzing image:', error.message);
     throw new Error('Failed to analyze the image with Azure Computer Vision.');
   }
 };
+
 
 module.exports = { analyzeImage };
